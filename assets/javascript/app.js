@@ -115,7 +115,7 @@ $("button").on("click", function run() {
 
     let count = "Q" + quizCount;
 
-    if (quizCount === 6) {
+    if (quizCount === 11) {
         endResult();
     }
 
@@ -134,7 +134,7 @@ $("button").on("click", function run() {
 
     $(".answers").on("click", ".choice", function () {
         clearInterval(timer.intervalId);
-        timer.time = 16;
+        timer.time = 31;
 
         let result = $("<div>");
         $(result).addClass("mb-4");
