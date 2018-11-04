@@ -1,77 +1,64 @@
-/* Pseudo Code
 
-Trivial Trivia Game
- 
-Click to Start
-
-Timer begins at 30 seconds and counts down for each question
-
-Player goes through quest
-player can only guess one answer per question
-
-Once completed, player submit's answers
-HTML is updated with users score
-Score includes: time spent, answers correct, and answers wrong */
 
 let trivia = {
     Q1: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "Answer1",
+        question: "What are the four houses at Hogwarts School of Witchcraft and Wizardry?",
+        choice: ["Gryffindor, Ravenclaw, Hufflepuff, & Slytherin", "House 1, House 2, House 3, House 4", "Gryfflyff, Ravencraw, Huffleduff, & Slytheryne", "Monkey House, Animal House, Ghost House, Cool House"],
+        answer: "Gryffindor, Ravenclaw, Hufflepuff, & Slytherin",
         picture: "assets/images/answer_1.png"
     },
     Q2: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "Answer1",
+        question: "Who was the first woman pilot to fly solo across the Atlantic?",
+        choice: ["Linda Hamilton", "Hillary Clinton", "Amelia Earhart", "Ginny Eckstein"],
+        answer: "Amelia Earhart",
         picture: "assets/images/answer_2.png"
     },
     Q3: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "Answer1",
+        question: "What city is the capital of China?",
+        choice: ["Chengdu", "Shanghai", "Hong Kong", "Beijing"],
+        answer: "Beijing",
         picture: "assets/images/answer_3.png"
     },
     Q4: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "Answer1",
+        question: "Who was the author of the children’s fantasy novel The Lion, the Witch and the Wardrobe?",
+        choice: ["Phil Spector", "Ernest Hemmingway", "C.S. Lewis", "Michael Crichton"],
+        answer: "C.S. Lewis",
         picture: "assets/images/answer_4.png"
     },
     Q5: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "All of the Above",
+        question: "Polar bears feed mainly on what animal?",
+        choice: ["Seals", "Narwhals", "Walruses", "Sharks"],
+        answer: "Seals",
         picture: "assets/images/answer_5.png"
     },
     Q6: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "Answer1",
+        question: "On the Apollo 11 moon mission, which astronaut stayed aloft in the command module while Neil Armstrong and Buzz Aldrin walked on the moon?",
+        choice: ["Buzz Aldrin Jr", "Michael Collins", "Vincent Chestly", "Michael Collogne"],
+        answer: "Michael Collins",
         picture: "assets/images/answer_6.png"
     },
     Q7: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "Answer1",
+        question: "What famous actor became Governor of California in 2003?",
+        choice: ["Tom Cruise", "Danny Devito", "Arnold Schwarzenegger", "Alyssa Milano"],
+        answer: "Arnold Schwarzenegger",
         picture: "assets/images/answer_7.png"
     },
     Q8: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
+        question: "In what year was Alfred Hitchcock’s psychological thriller “Psycho” released?",
+        choice: ["1958", "1971", "1963", "1960"],
         answer: "Answer1",
         picture: "assets/images/answer_8.png"
     },
     Q9: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "Answer1",
+        question: "What is the smallest island country?",
+        choice: ["Nauru", "Palau", "Tuvalu", "Malta"],
+        answer: "Nauru",
         picture: "assets/images/answer_9.png"
     },
     Q10: {
-        question: "This is a question?",
-        choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
-        answer: "All of the Above",
+        question: "The Shining was written by which author?",
+        choice: ["Stephen King", "R. L. Stein", "J. K. Rowling", "J. R. R. Tolkien"],
+        answer: "Stephen King",
         picture: "assets/images/answer_10.png"
     }
 };
@@ -94,12 +81,10 @@ $("button").on("click", function run() {
     $("#beforeStart").css("display", "none");
     $("#afterStart").css("display", "block");
 
-    //This sets up the initial timer
     function start() {
         timer.intervalId = setInterval(decrement, 1000);
     }
 
-    //Running decrement function and what to do if time is up
     function decrement() {
         timer.time--;
         $("#timeLeft").html(timer.time);
@@ -116,7 +101,7 @@ $("button").on("click", function run() {
                 trivia[count].picture +
                 ' alt="' +
                 trivia[count].answer +
-                '" width="375px" />'
+                '" width="400px" />'
             );
             $(result).html(
                 "Time's up! The correct answer is: " + trivia[count].answer
@@ -128,7 +113,6 @@ $("button").on("click", function run() {
 
     start();
 
-    //Runs through the array of questions and dynamically generates the question and choices
     let count = "Q" + quizCount;
 
     if (quizCount === 6) {
@@ -148,7 +132,6 @@ $("button").on("click", function run() {
         i++;
     });
 
-    //Evaluates the user's choice and listens for a button click to reset for next question
     $(".answers").on("click", ".choice", function () {
         clearInterval(timer.intervalId);
         timer.time = 16;
@@ -177,7 +160,6 @@ $("button").on("click", function run() {
         }
     });
 
-    //Resets the quiz and increases quizCount by one for next question
     function nextQuestion() {
         quizCount++;
         $(".question").empty();
