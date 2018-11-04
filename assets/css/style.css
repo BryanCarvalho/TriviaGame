@@ -17,17 +17,19 @@ h1 {
   font-family: 'Sigmar One', cursive;
   font-size: 60px;
   color: orange;
+  margin: 0 auto;
 }
 
 p {
-  padding-bottom: 24px;
+  padding-bottom: 16px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .splashBg {
   background-color: #ffffff;
   background-repeat: no-repeat;
   padding: 80px;
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   border-radius: 16px;
   box-shadow: 0 10px 20px 0 rgba(22, 25, 32, 0.19), 0 6px 7px 0 rgba(22, 25, 32, 0.26);

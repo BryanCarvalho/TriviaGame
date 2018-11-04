@@ -4,16 +4,16 @@ Trivial Trivia Game
  
 Click to Start
 
-Timer begins at xx seconds and countdown
+Timer begins at 30 seconds and counts down for each question
 
-Player goes through all 10 questions
+Player goes through quest
 player can only guess one answer per question
 
 Once completed, player submit's answers
 HTML is updated with users score
 Score includes: time spent, answers correct, and answers wrong */
 
-var trivia = {
+let trivia = {
     Q1: {
         question: "This is a question?",
         choice: ["Answer1", "Answer2", "Answer3", "Answer4"],
@@ -76,26 +76,25 @@ var trivia = {
     }
 };
 
-var stats = {
+let stats = {
     correct: 0,
     incorrect: 0
 };
 
-var timer = {
+let timer = {
     intervalId: 0,
-    time: 16,
+    time: 31,
     timeReset: 0
 };
 
-var quizCount = 1;
+let quizCount = 1;
 
 $("button").on("click", function run() {
 
-    //Hides the button and starts the game
-    $("#preStart").css("display", "none");
-    $("#postStart").css("display", "block");
+    $("#beforeStart").css("display", "none");
+    $("#afterStart").css("display", "block");
 
-    //Set the initial timer
+    //This sets up the initial timer
     function start() {
         timer.intervalId = setInterval(decrement, 1000);
     }
@@ -106,7 +105,7 @@ $("button").on("click", function run() {
         $("#timeLeft").html(timer.time);
         if (timer.time === 0) {
             clearInterval(timer.intervalId);
-            timer.time = 16;
+            timer.time = 31;
 
             let result = $("<div>");
             $(result).addClass("mb-4");

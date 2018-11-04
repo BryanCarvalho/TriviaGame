@@ -22,9 +22,28 @@
         <div class="splash">
             <h3>Welcome to</h3>
             <h1>Trivial Trivia!</h1>
-            <p>You have 30 seconds to answer 10 questions</p>
-            <br>
-            <button type="button" class="btn btn-primary btn-lg btn-block">Get Started</button>
+
+            <div id="beforeStart">
+                <div class="row">
+                    <button class="btn btn-primary btn-lg btn-block">Get Started!</button>
+                </div>
+            </div>
+
+            <div id="afterStart">
+                <div class="row">
+                    <p class="col mt-5">Time Remaining:
+                        <span id="timeLeft"></span> Seconds</p>
+                </div>
+
+                <section class="row">
+                    <div class="col mt-5 question"></div>
+                </section>
+
+                <section class="row">
+                    <div class="col mt-3 answers"></div>
+                </section>
+            </div>
+
         </div>
     </div>
 
@@ -35,3 +54,40 @@
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </html>
+
+<!-- 
+
+<body>
+    <div class="container">
+        <header class="row">
+            <h1 class="col mt-4">Totally Trivial Trivia!</h1>
+        </header>
+
+        <div id="preStart">
+            <div class="row">
+                <button class="col-4 offset-4">Click here to start!</button>
+            </div>
+        </div>
+
+        <div id="postStart">
+            <div class="row">
+                <p class="col mt-5">Time Remaining:
+                    <span id="timeLeft"></span> Seconds</p>
+            </div>
+
+            <section class="row">
+                <div class="col mt-5 question"></div>
+            </section>
+
+            <section class="row">
+                <div class="col mt-3 answers"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
+-->
