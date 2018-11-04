@@ -18,11 +18,31 @@ h1 {
   font-size: 60px;
   color: orange;
   margin: 0 auto;
+  margin-bottom: 32px;
 }
 
 p {
-  padding-bottom: 16px;
+  padding-bottom: 8px;
   font-family: 'Raleway', sans-serif;
+}
+
+.choice {
+  width: 400px;
+  margin: auto;
+}
+
+.choice:hover {
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+}
+
+#beforeStart {
+  display: inline;
+}
+
+#afterStart {
+  display: none;
 }
 
 .splashBg {

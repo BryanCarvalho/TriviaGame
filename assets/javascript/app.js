@@ -46,7 +46,7 @@ let trivia = {
     Q8: {
         question: "In what year was Alfred Hitchcock’s psychological thriller “Psycho” released?",
         choice: ["1958", "1971", "1963", "1960"],
-        answer: "Answer1",
+        answer: "1960",
         picture: "assets/images/answer_8.png"
     },
     Q9: {
@@ -96,16 +96,8 @@ $("button").on("click", function run() {
             $(result).addClass("mb-4");
 
             setTimeout(nextQuestion, 3000);
-            $(".question").html(
-                "<img src=" +
-                trivia[count].picture +
-                ' alt="' +
-                trivia[count].answer +
-                '" width="400px" />'
-            );
-            $(result).html(
-                "Time's up! The correct answer is: " + trivia[count].answer
-            );
+            $(".question").html(`<img src= ${trivia[count].picture} alt=" ${trivia[count].answer} width="400px" />`);
+            $(result).html(`Time's up! The correct answer is: ${trivia[count].answer}`);
             stats.incorrect++;
             $(".answers").html(result);
         }
@@ -113,7 +105,7 @@ $("button").on("click", function run() {
 
     start();
 
-    let count = "Q" + quizCount;
+    let count = `Q${quizCount}`;
 
     if (quizCount === 11) {
         endResult();
@@ -140,21 +132,13 @@ $("button").on("click", function run() {
         $(result).addClass("mb-4");
 
         setTimeout(nextQuestion, 3000);
-        $(".question").html(
-            "<img src=" +
-            trivia[count].picture +
-            ' alt="' +
-            trivia[count].answer +
-            '" width="375px" />'
-        );
+        $(".question").html(`<img src= ${trivia[count].picture} alt=" ${trivia[count].answer} width="400px" />`);
         if ($(this).text() === trivia[count].answer) {
             $(result).html("Awesome! You're right!");
             stats.correct++;
             $(".answers").html(result);
         } else {
-            $(result).html(
-                "Mistakes were made. The correct answer is: " + trivia[count].answer
-            );
+            $(result).html(`Mistakes were made. The correct answer is: ${trivia[count].answer}`);
             stats.incorrect++;
             $(".answers").html(result);
         }
@@ -172,12 +156,12 @@ $("button").on("click", function run() {
         clearInterval(timer.intervalId);
 
         $(".question").append(
-            "<div>Questions answered correctly: " + stats.correct + "</div>"
+            `<div> Correct Answers: ${stats.correct} </div>`
         );
         $(".question").append(
-            "<div>Questions answered incorrectly: " + stats.incorrect + "</div>"
+            `<div> Incorrect Answers: ${stats.incorrect} </div>`
         );
-        $(".answers").html("<button>Click to try again</button>");
+        $(".answers").html("<button class=btn btn-primary btn-lg btn-block>Try Again?</button>");
 
         $("button").on("click", function () {
             quizCount = 1;
